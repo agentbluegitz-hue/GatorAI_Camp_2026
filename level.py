@@ -213,6 +213,7 @@ class Level:
     def spawn_npcs(self):
         """Spawn custom NPCs defined in settings.py NPC_DATA configuration."""
         from sprites import NPC
+        # Spawn regular NPCs from settings
         for npc_name, data in NPC_DATA.items():
             NPC(
                 pos=data["pos"],
@@ -221,6 +222,10 @@ class Level:
                 dialogue=data["dialogue"],
                 groups=[self.all_sprites, self.collision_sprites, self.npc_sprites]
             )
+        
+        # Spawn AI-enhanced NPCs for better AI agent interaction
+        from ai_agent_npc import create_ai_training_npcs
+        self.ai_npcs = create_ai_training_npcs(self)
 
     def trigger_npc_dialogue(self, name, lines):
         """Callback to start custom static dialogue."""
