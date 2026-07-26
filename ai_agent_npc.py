@@ -160,21 +160,21 @@ def create_ai_training_npcs(level):
     ai_npc_configs = [
         {
             "name": "Professor Pixel",
-            "pos": (850, 350),
+            "pos": (850, 450),  # Moved down 100 pixels for better spacing
             "graphic": "graphics/objects/merchant.png",  # Reuse existing asset
             "role": "AI Education Specialist",
             "specialty": "Teaching AI fundamentals through game examples"
         },
         {
             "name": "Codey the Compiler",
-            "pos": (950, 350),
+            "pos": (950, 450),  # Moved down 100 pixels for better spacing
             "graphic": "graphics/objects/merchant.png",
             "role": "Programming Mentor", 
             "specialty": "Helping understand coding concepts"
         },
         {
             "name": "Vision Vic",
-            "pos": (900, 450),
+            "pos": (900, 550),  # Moved down 100 pixels for better spacing
             "graphic": "graphics/objects/merchant.png",
             "role": "Computer Vision Expert",
             "specialty": "Explaining OpenCV and image processing"
