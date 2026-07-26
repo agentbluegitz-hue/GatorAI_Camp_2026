@@ -46,6 +46,9 @@ class AIAgentNPC(pygame.sprite.Sprite):
         self.rect.topleft = pos
         self.hitbox = self.rect.inflate(-self.rect.width // 2, -self.rect.height // 2)
         
+        # Set draw layer (same as player and main characters)
+        self.z = LAYERS["main"]
+        
         # NPC properties
         self.name = name
         self.dialogue_history = []  # Track conversation history
@@ -157,21 +160,21 @@ def create_ai_training_npcs(level):
     ai_npc_configs = [
         {
             "name": "Professor Pixel",
-            "pos": (100, 100),
+            "pos": (850, 350),
             "graphic": "graphics/objects/merchant.png",  # Reuse existing asset
             "role": "AI Education Specialist",
             "specialty": "Teaching AI fundamentals through game examples"
         },
         {
             "name": "Codey the Compiler",
-            "pos": (200, 300),
+            "pos": (950, 350),
             "graphic": "graphics/objects/merchant.png",
             "role": "Programming Mentor", 
             "specialty": "Helping understand coding concepts"
         },
         {
             "name": "Vision Vic",
-            "pos": (400, 150),
+            "pos": (900, 450),
             "graphic": "graphics/objects/merchant.png",
             "role": "Computer Vision Expert",
             "specialty": "Explaining OpenCV and image processing"
@@ -189,6 +192,7 @@ def create_ai_training_npcs(level):
         # Store additional metadata on the NPC object
         npc.role = config["role"]
         npc.specialty = config["specialty"]
+        npc.dialogue = ["..."]  # Placeholder for AI dialogue system
         ai_npcs.append(npc)
     
     return ai_npcs
