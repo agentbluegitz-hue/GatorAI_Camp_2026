@@ -48,12 +48,6 @@ class AIAgentNPC(pygame.sprite.Sprite):
         
         # Set draw layer (same as player and main characters)
         self.z = LAYERS["main"]
-    
-    @property
-    def dialogue(self):
-        """Return current AI-generated dialogue for interaction system."""
-        return self.get_ai_dialogue()
-
         
         # NPC properties
         self.name = name
@@ -76,6 +70,12 @@ class AIAgentNPC(pygame.sprite.Sprite):
             "topics": ["game mechanics", "AI concepts", "player progress"]
         }
     
+    
+    @property
+    def dialogue(self):
+        """Return current AI-generated dialogue for interaction system."""
+        return self.get_ai_dialogue()
+
     def get_ai_dialogue(self, player_context=None):
         """
         Generate AI-powered dialogue based on context and conversation history.
